@@ -8,6 +8,7 @@ from PyQt5.QtGui import QIcon, QPixmap
 import sys
 from database import Database
 import random
+#Kullanıcı girişi yapmak için efe  şifre için  0909 girilmeli
 
 class ResultDialog(QDialog):
     def __init__(self, filtered_players, parent=None):

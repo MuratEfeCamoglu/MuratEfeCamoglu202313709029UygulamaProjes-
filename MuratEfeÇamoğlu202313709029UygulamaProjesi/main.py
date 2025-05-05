@@ -1,13 +1,12 @@
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QTabWidget,
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, 
                            QVBoxLayout, QHBoxLayout, QLabel, QLineEdit,
                            QPushButton, QTableWidget, QTableWidgetItem, QMessageBox,
-                           QComboBox, QDialog, QSpinBox, QHeaderView, QStackedWidget,
+                           QComboBox, QDialog, QSpinBox, QStackedWidget,
                            QFormLayout)
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QIcon, QPixmap
 import sys
 from database import Database
-import random
+
 #Kullanıcı girişi yapmak için efe  şifre için  0909 girilmeli
 
 class ResultDialog(QDialog):
@@ -47,6 +46,7 @@ class ResultDialog(QDialog):
         close_button = QPushButton("Kapat")
         close_button.clicked.connect(self.accept)
         layout.addWidget(close_button)
+# ... (Filtreleme sonuçlarını gösteren diyalog)
 
 class FilterDialog(QDialog):
     def __init__(self, parent=None):
@@ -123,6 +123,8 @@ class FilterDialog(QDialog):
         layout.addWidget(stats_group)
         layout.addLayout(buttons)
 
+# ... (Oyuncu filtreleme diyalogu)
+
 class CompareDialog(QDialog):
     def __init__(self, player1, player2, parent=None):
         super().__init__(parent)
@@ -175,6 +177,8 @@ class CompareDialog(QDialog):
         close_button.clicked.connect(self.accept)
         layout.addWidget(close_button)
 
+# ... (Oyuncu karşılaştırma diyalogu)
+
 class FavoritesDialog(QDialog):
     def __init__(self, favorite_players, parent=None):
         super().__init__(parent)
@@ -212,11 +216,13 @@ class FavoritesDialog(QDialog):
         close_button.clicked.connect(self.accept)
         layout.addWidget(close_button)
 
-class BasketballApp(QMainWindow):
+ # ... (Favori oyuncuları gösteren diyalog)
+
+class BasketballApp(QMainWindow):#Ana pencere sınıfı
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Efe'nin NBA Uygulaması")
-        self.setGeometry(100, 100, 1200, 800)
+        self.setGeometry(100, 100, 1200, 800) # Pencere boyutu ve pozisyonu
         
         # Kullanıcı ve favori bilgileri
         self.current_user = None
@@ -260,9 +266,9 @@ class BasketballApp(QMainWindow):
         layout.addWidget(title)
         
         form = QFormLayout()
-        self.username = QLineEdit()
+        self.username = QLineEdit()#Kullanıcı giriş alanları
         self.password = QLineEdit()
-        self.password.setEchoMode(QLineEdit.Password)
+        self.password.setEchoMode(QLineEdit.Password)#Şifre girişinde karakterleri gizler
         
         form.addRow("Kullanıcı Adı:", self.username)
         form.addRow("Şifre:", self.password)
@@ -311,8 +317,8 @@ class BasketballApp(QMainWindow):
         layout.addLayout(btn_layout)
         
         # Oyuncu tablosu
-        self.table = QTableWidget()
-        self.table.setSelectionMode(QTableWidget.MultiSelection)
+        self.table = QTableWidget()#Oyuncu verilerini göstermek için tablo
+        self.table.setSelectionMode(QTableWidget.MultiSelection)#: Çoklu satır seçimine izin verir
         self.table.setSelectionBehavior(QTableWidget.SelectRows)
         self.setup_table()
         layout.addWidget(self.table)
@@ -372,7 +378,7 @@ class BasketballApp(QMainWindow):
             QMessageBox.warning(self, "Hata", "Kullanıcı adı veya şifre hatalı!")
 
     def show_filter(self):
-        dialog = FilterDialog(self)
+        dialog = FilterDialog(self)#Özel filtreleme iletişim kutusu
         if dialog.exec_() == QDialog.Accepted:
             try:
                 # Veritabanından tüm oyuncuları al
@@ -439,7 +445,7 @@ class BasketballApp(QMainWindow):
             player2 = players[row_list[1]]
             
             # Karşılaştırma penceresini göster
-            dialog = CompareDialog(player1, player2, self)
+            dialog = CompareDialog(player1, player2, self)#Özel karşılaştırma iletişim kutusu
             dialog.exec_()
             
         except Exception as e:

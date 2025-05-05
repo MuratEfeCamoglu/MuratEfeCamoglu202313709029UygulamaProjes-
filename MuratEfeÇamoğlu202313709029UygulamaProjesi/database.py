@@ -8,8 +8,8 @@ class Database:
             db_path = os.path.join(os.path.dirname(__file__), 'basketball.db')
             
             # Veritabanı bağlantısı
-            self.conn = sqlite3.connect(db_path)
-            self.cursor = self.conn.cursor()
+            self.conn = sqlite3.connect(db_path)# SQLite veritabanına bağlantı açar
+            self.cursor = self.conn.cursor() # Veritabanı işlemleri için imleç oluşturur
             
             # Tabloları oluştur
             self.cursor.execute('''

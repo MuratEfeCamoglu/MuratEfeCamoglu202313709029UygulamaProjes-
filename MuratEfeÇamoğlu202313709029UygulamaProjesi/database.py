@@ -1,6 +1,18 @@
 import sqlite3
 import os
 
+#SQLite veritabanlarıyla çalışmak için kullanılır.
+# Veritabanı oluşturmak, tablo oluşturmak, veri eklemek, silmek,
+#  güncellemek ve sorgulamak gibi işlemleri yapmanı sağlar.
+
+#modülü, işletim sistemiyle ilgili işlemleri yapmanı sağlar.
+
+#Ne işe yarar?: Dosya/dizin işlemleri (oluşturma, silme, yeniden adlandırma), dosya yolları ile çalışma, 
+# ortam değişkenlerine erişim gibi işlevleri içerir.
+
+
+
+
 class Database:
     def __init__(self):
         try:

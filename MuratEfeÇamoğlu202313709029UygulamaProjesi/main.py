@@ -7,6 +7,23 @@ from PyQt5.QtCore import Qt
 import sys
 from database import Database
 
+#QMainWindow: Menü çubuğu, araç çubuğu, durum çubuğu gibi öğeleri destekleyen ana pencere sınıfı.
+#QWidget: Tüm arayüz öğeleri bunun türevleridir. 
+#QVBoxLayout, QHBoxLayout: Dikey ve yatay yerleşim düzenleyicileridir. Bileşenleri dikey veya yatay olarak sıralar.
+#QLabel: Metin veya resim gösterir.
+#QLineEdit: Tek satırlık metin girişi sağlar.
+#QPushButton: Tıklanabilir düğme.
+#QTableWidget: Hücrelerden oluşan tablo oluşturmak için kullanılır.
+#QMessageBox: Uyarı, bilgi ya da hata pencereleri göstermek için kullanılır.
+#QComboBox: Açılır kutu (dropdown menu).
+#QSpinBox: Sayısal değer girişi için kullanılan kutu (genellikle ok tuşlarıyla artırılıp azaltılabilir).
+
+
+#sys :uygulamayı başlatmak ve kapatmak için kullanılır.
+
+# from database import Database : veritabanı işlemlerini (veri ekleme, silme, güncelleme, sorgulama vs.) yönetmek için yazılmıştır.
+
+
 #Kullanıcı girişi yapmak için efe  şifre için  0909 girilmeli
 
 class ResultDialog(QDialog):

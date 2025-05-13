@@ -3,8 +3,11 @@ from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget,
                            QPushButton, QTableWidget, QTableWidgetItem, QMessageBox,
                            QComboBox, QDialog, QSpinBox, QStackedWidget,
                            QFormLayout)
+
 from PyQt5.QtCore import Qt
+
 import sys
+
 from database import Database
 
 #QMainWindow: Menü çubuğu, araç çubuğu, durum çubuğu gibi öğeleri destekleyen ana pencere sınıfı.
@@ -18,13 +21,15 @@ from database import Database
 #QComboBox: Açılır kutu (dropdown menu).
 #QSpinBox: Sayısal değer girişi için kullanılan kutu (genellikle ok tuşlarıyla artırılıp azaltılabilir).
 
-
 #sys :uygulamayı başlatmak ve kapatmak için kullanılır.
 
 # from database import Database : veritabanı işlemlerini (veri ekleme, silme, güncelleme, sorgulama vs.) yönetmek için yazılmıştır.
 
-
 #Kullanıcı girişi yapmak için efe  şifre için  0909 girilmeli
+
+
+# ... (Filtreleme sonuçlarını gösteren diyalog)
+
 
 class ResultDialog(QDialog):
     def __init__(self, filtered_players, parent=None):
@@ -63,7 +68,8 @@ class ResultDialog(QDialog):
         close_button = QPushButton("Kapat")
         close_button.clicked.connect(self.accept)
         layout.addWidget(close_button)
-# ... (Filtreleme sonuçlarını gösteren diyalog)
+
+# ... (Oyuncu filtreleme diyalogu)
 
 class FilterDialog(QDialog):
     def __init__(self, parent=None):
@@ -140,7 +146,8 @@ class FilterDialog(QDialog):
         layout.addWidget(stats_group)
         layout.addLayout(buttons)
 
-# ... (Oyuncu filtreleme diyalogu)
+
+# ... (Oyuncu karşılaştırma diyalogu)
 
 class CompareDialog(QDialog):
     def __init__(self, player1, player2, parent=None):
@@ -194,7 +201,7 @@ class CompareDialog(QDialog):
         close_button.clicked.connect(self.accept)
         layout.addWidget(close_button)
 
-# ... (Oyuncu karşılaştırma diyalogu)
+ # ... (Favori oyuncuları gösteren diyalog)
 
 class FavoritesDialog(QDialog):
     def __init__(self, favorite_players, parent=None):
@@ -233,9 +240,9 @@ class FavoritesDialog(QDialog):
         close_button.clicked.connect(self.accept)
         layout.addWidget(close_button)
 
- # ... (Favori oyuncuları gösteren diyalog)
+#Ana pencere sınıfı
 
-class BasketballApp(QMainWindow):#Ana pencere sınıfı
+class BasketballApp(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Efe'nin NBA Uygulaması")
